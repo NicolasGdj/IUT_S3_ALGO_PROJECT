@@ -16,34 +16,38 @@ std::string openFile(const std::string & path){
     return result;
 }
 
-void explore(vector<std::string> & pages, const unsigned & current){
+void explore(vector<std::string> & pages, vector<vector<bool>> & adjs, const unsigned & current){
     if(pages.size() == current) return;
     std::string path = pages.at(current);
-    std::cout << "Exploration de " << path << ":" << std::endl;
     std::string page = openFile(path);
 
-    std::regex reg("href=\"[^\"]+\"");
-    smatch matches;
-    if(std::regex_search(page, matches, reg)) {
-        std::cout << "Match found\n";
 
-        for (size_t i = 0; i < matches.size(); ++i) {
-            std::cout << i << ": '" << matches[i] << "'\n";
-        }
-    } else {
-        std::cout << "Match not found\n";
-    }
-    explore(pages, current+1);
+    explore(pages, adjs, current+1);
 }
 
 int main()
 {
     std::string path = "https://www.lmfdb.org/EllipticCurve/Q/";
     vector<std::string> pages = vector<std::string>();
-    vector<vector<bool>> matrices = vector<vector<bool>>();
+    vector<vector<bool>> adjs = vector<vector<bool>>();
     pages.push_back("nawak");
     pages.push_back(path);
-    explore(pages, 0);
+    explore(pages, adjs, 1);
+
+    string var = "first second third forth";
+
+    const regex r("(.*)");
+    smatch sm;
+
+    if (regex_search(var, sm, r))
+    {
+        for (int i=1; i<sm.size(); i++)
+        {
+            cout << sm[i] << endl;
+        }
+    }
+
+
     std::cout << "End" << std::endl;
     return 0;
 }
