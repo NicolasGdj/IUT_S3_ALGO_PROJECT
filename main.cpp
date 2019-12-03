@@ -6,7 +6,7 @@
 using namespace std;
 
 std::string openFile(const std::string & path){
-    std::string fPath = "mkdir temp & curl " + path + " > temp/currentPage.txt";
+    std::string fPath = "curl " + path + " > temp/currentPage.txt";
     system(fPath.c_str());
     ifstream ifs("currentPage.txt");
     std::string result;
