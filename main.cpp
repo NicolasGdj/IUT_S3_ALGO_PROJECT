@@ -6,7 +6,7 @@
 using namespace std;
 
 std::string openFile(const std::string & path){
-    std::string fPath = "curl " + path + " > currentPage.txt";
+    std::string fPath = "mkdir temp & curl " + path + " > temp/currentPage.txt";
     system(fPath.c_str());
     ifstream ifs("currentPage.txt");
     std::string result;
@@ -24,10 +24,9 @@ void explore(vector<std::string> & pages, vector<vector<bool>> & adjs, const uns
     smatch matches;
     string::const_iterator searchStart( page.cbegin() );
     while ( regex_search( searchStart, page.cend(), matches, reg ) ) {
-        cout << ( searchStart == page.cbegin() ? "" : " " ) << matches[0]; // Sortie du string
+        pages.push_back(matches[0]);
         searchStart = matches.suffix().first;
-   }
-
+    }
     explore(pages, adjs, current+1);
 }
 
@@ -40,20 +39,6 @@ int main()
     pages.push_back("nawak");
     pages.push_back(path);
     explore(pages, adjs, 1);
-
-    string var = "first second third forth";
-
-    const regex r("(.*)");
-    smatch sm;
-
-    if (regex_search(var, sm, r))
-    {
-        for (int i=1; i<sm.size(); i++)
-        {
-            cout << sm[i] << endl;
-        }
-    }
-
 
     std::cout << "End" << std::endl;
     return 0;
