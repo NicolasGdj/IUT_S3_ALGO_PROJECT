@@ -5,3 +5,8 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp
+
+HEADERS += \
+    cmatrix.hpp \
+    ctree.hpp \
+    node.hpp
