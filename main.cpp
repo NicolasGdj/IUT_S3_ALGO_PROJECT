@@ -268,7 +268,8 @@ int main(int argc, char* argv[])
     auto first = pages.begin();
     auto last = pages.end();
 
-
+    /*On vient placer sur la première ligne tout les liens trouvé
+     * */
     for(; first != last; ++first)
         out << ";" << (*first);
 
