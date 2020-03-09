@@ -53,7 +53,7 @@ public:
 
     void printLine(const size_t & i, std::ostream & ostream){
 
-        std::list<pairColVal> & list = matrix[i];// list de toute les colone sur les quel mettre un 1
+        std::list<pairColVal> & list = matrix[i];// Liste de toutes les colonnes sur les quel mettre un 1
         std::list<pairColVal>::iterator it;
 
         size_t pos = 0;
@@ -68,10 +68,10 @@ public:
                     ostream << ";";
                 ostream << "0";
             }
-            pos = it->first+1;// la position est égale à la colonne juste après le 1 déposé
+            pos = it->first+1;// La position est égale à la colonne juste après le 1 déposé
             if(it->first != 0)
                 ostream << ";";
-            ostream << it->second;// place le 1
+            ostream << it->second;// Place le 1
         }
         // permets de remplir la ligne de 0 s'il n'y a plus de 1 à placer
         for(size_t j = pos; j < matrix.size(); ++j){
