@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <list>
+
 #include "node.hpp"
 
 struct triplet{
@@ -65,7 +66,7 @@ public:
          *
          *  \param trip : Triplet a ajouter a l'arbre
          */
-    void add(const triplet & trip){ // www.youtube.com/user/nicolas
+    void add(const triplet & trip){
         if(!m_root) return;
         const std::string & url = trip.sub;
         if(url.length() == 0) return;
@@ -152,7 +153,7 @@ public:
          *  \param url : Url d'une page internet
          *  \return Index
          */
-    unsigned get(const std::string & url){ // www.youtube.com/user/nicolas
+    unsigned get(const std::string & url){
         if(!m_root) return 0;
         if(url.length() == 0) return 0;
         std::string sub = getFirstSplit(url, "/");

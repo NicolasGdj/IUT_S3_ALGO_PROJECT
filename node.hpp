@@ -42,7 +42,7 @@ class CNode
     std::list<std::shared_ptr<CNode<T>>> children; /*!< Liste des enfants de la node*/
     typedef typename std::list<std::shared_ptr<CNode<T>>>::iterator children_it; /*!< Pointeur vers la node principal de l'arbre*/
 
-public: // www.youtube.com/user/nicolaslebg/20002
+public:
     /*!
          *  \brief Constructeur
          *
@@ -77,28 +77,6 @@ public: // www.youtube.com/user/nicolaslebg/20002
         return children;
     }
 
-    /*
-    CNode * find(T url){
-        if(url.length() == 0) return nullptr;
-        if(url == getData()) return this;
-        T sub = getFirstSplit(url, "/");
-        if(sub != getData()) return nullptr;
-        T next = url.substr(sub.length());
-        if(next.length() != 0 && next[0] == '/')
-            next = next.substr(1);
-
-        children_it first = children.begin();
-        children_it last = children.end();
-
-        for(; first != last; ++first){
-            CNode * n = first->find(next);
-            if(n != nullptr){
-                return n;
-            }
-        }
-        return nullptr;
-    }
-    */
 };
 
 

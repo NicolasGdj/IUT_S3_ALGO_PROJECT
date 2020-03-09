@@ -8,9 +8,9 @@
 #include <vector>
 #include <fstream>
 #include <regex>
-
 #include <list>
 #include <iterator>
+
 #include "ctree.hpp"
 #include "cmatrix.hpp"
 
@@ -29,41 +29,21 @@ unsigned MAX = 4;
      */
 std::string openFile(const std::string & path){
 
-    /*
-     * Creation d'une chaine d'un string qui contient la commande qui sera executée.
-     * On utilise le logiciel curl qui nous permet de recuperer le contenue d'une page.
-     * L'option -L permet de preciser au logiciel qu'il doit suivre la redirection qu'il y a sur la page.
-     * Une fois le telechargement fait, on redirige la sortie "erreur" vers le fichier err.txt pour évité un affichage dans la console
-     * Alors que la sortie standard est redirigé vers le fichier currentPage.txt
-     * */
     std::string fPath = "curl -L \"" + path + "\" 2> err.txt > currentPage.txt";
 
-    /* La donction system() permet d'executer directement une commande.
-     * On passe en parametre la chaine definis plus ou et on la convertie en type string du language C.
-     * */
     system(fPath.c_str());
 
-    /*Etablissement d'un flux donnée d'entrée avec le fichier currentPage.txt, celui-ci est rempli plus haut.
-     * */
     ifstream ifs("currentPage.txt");
 
-    std::string result; // Declaration d'un string qui contiendra le contenue du fichier CurrentPage.txt
-    std::string line; // Declaration d'un string contenant une ligne du fichier CurrentPage.txt
+    std::string result;
+    std::string line;
 
-    /*La boucle while parcourt chaque ligne du stream ifs. Grace au getline, on stoque la ligne dans la variable
-     * line et ensuite on concatene le contenu de la varible avec notre variable result.
-     * */
     while(getline(ifs, line))
         result+=line;
 
-    /*On ferme le fichier de telle façons a le liberé car par la suite nous allons re-ecrire dessus.
-     * */
+
     ifs.close();
 
-    //removeFile
-
-    /* On retourne le resultat de la page.
-     * */
     return result;
 }
 
@@ -77,7 +57,7 @@ std::string openFile(const std::string & path){
      *  \return true si existant en premiere position sinon false
      */
 bool startsWith(const std::string & mainStr, const std::string & toMatch) {
-    if(mainStr.find(toMatch) == 0) // Si il trouve la chaine en position 1 alors on retourne truee
+    if(mainStr.find(toMatch) == 0)
         return true;
     else
         return false;
@@ -167,7 +147,7 @@ void normalize_link(std::string & link){
 
         link = link.substr(0, pos);
         if(end_pos <= link.length())
-           link += link.substr(end_pos);
+            link += link.substr(end_pos);
     }
 
     if(startsWith(link, "https://"))
@@ -189,13 +169,12 @@ void normalize_link(std::string & link){
                 link = url.substr(0, url.length()-1) + extra;
         }
     }
-   // std::cout << "Final link : " <<link << std::endl;
 }
 
 /*!
      *  \brief Parcour d'une page
      *
-     *  Pacour d'une page pour trouver et traiter des liens hypertext
+     *  Parcours d'une page pour trouver et traiter des liens hypertext
      *
      *  \param pages : Liste de pages
      *  \param adjs : Matrice adjacente
@@ -208,7 +187,6 @@ void explore(std::list<std::string> & pages, CMatrix & adjs, CTree & tree, std::
 
     std::size_t current_matrice_pos = tree.get(path);
     std::cout << "Recherche de liens sur " << path << " [" << (current_matrice_pos+1) << "/" << pages.size() << "]" << std::endl;
-
 
     std::string page = openFile(path);
 
@@ -303,12 +281,12 @@ void explore(std::list<std::string> & pages, CMatrix & adjs, CTree & tree, std::
 int main(int argc, char* argv[])
 {
 
-    std::string path = "www.lmfdb.org/EllipticCurve/Q/";
-    MAX = 100;
+    std::string path = "";
+    MAX = 1;
 
     if(argc != 4){
         std::cout << "Usage : ./a.out <baseURL> <max> <outFile>" << std::endl;
-        //return 1;
+        return 1;
     }else{
         path = argv[1];
         try {
@@ -328,9 +306,7 @@ int main(int argc, char* argv[])
     CTree tree (triplet("/", false, 0));
     CMatrix adj(MAX);
 
-
     std::list<std::string> pages;
-    //vector<std::string> pages = vector<std::string>();
     tree.add(triplet("extern", true, pages.size()));
     pages.push_back("extern");
     tree.add(triplet(path, true, pages.size()));
@@ -343,20 +319,17 @@ int main(int argc, char* argv[])
     auto first = pages.begin();
     auto last = pages.end();
 
-    /* On vient placer sur la première ligne tous les liens trouvés
-     * */
     for(; first != last; ++first)
         out << ";" << (*first);
     
-    /* Retour à la ligne
-     * */
+
     out << std::endl;
     
     first = pages.begin();
     for(unsigned i = 0; first != last; ++first, ++i){
         out << (*first)  << ";";
-        adj.printLine(i, out);// Viens placer tous les 0 et 1 sur la ligne Exel au bon endroit
-        out << std::endl;// Retour à la ligne
+        adj.printLine(i, out);//
+        out << std::endl;
     }
 
     std::cout << std::endl << "Affichage de l'arbre correspondant" << std::endl;
