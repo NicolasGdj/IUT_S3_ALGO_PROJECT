@@ -268,13 +268,15 @@ int main(int argc, char* argv[])
     auto first = pages.begin();
     auto last = pages.end();
 
-    /*On vient placer sur la première ligne tout les liens trouvé
+    /* On vient placer sur la première ligne tous les liens trouvés
      * */
     for(; first != last; ++first)
         out << ";" << (*first);
-
+    
+    /* retour à la ligne
+     * */
     out << std::endl;
-
+    
     first = pages.begin();
     for(unsigned i = 0; first != last; ++first, ++i){
         out << (*first)  << ";";
