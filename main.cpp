@@ -33,13 +33,13 @@ std::string openFile(const std::string & path){
      * Creation d'une chaine d'un string qui contient la commande qui sera executée.
      * On utilise le logiciel curl qui nous permet de recuperer le contenue d'une page.
      * L'option -L permet de preciser au logiciel qu'il doit suivre la redirection qu'il y a sur la page.
-     * Une fois le telechargement fait, on redirige la sortie "erreur" vers le fichier err.txt
+     * Une fois le telechargement fait, on redirige la sortie "erreur" vers le fichier err.txt pour évité un affichage dans la console
      * Alors que la sortie standard est redirigé vers le fichier currentPage.txt
      * */
     std::string fPath = "curl -L \"" + path + "\" 2> err.txt > currentPage.txt";
 
     /* La donction system() permet d'executer directement une commande.
-     * On passe en parametre la chaine definus plus ou et on la convertie en type string du language C.
+     * On passe en parametre la chaine definis plus ou et on la convertie en type string du language C.
      * */
     system(fPath.c_str());
 
@@ -343,17 +343,20 @@ int main(int argc, char* argv[])
     auto first = pages.begin();
     auto last = pages.end();
 
-
+    /* On vient placer sur la première ligne tous les liens trouvés
+     * */
     for(; first != last; ++first)
         out << ";" << (*first);
-
+    
+    /* Retour à la ligne
+     * */
     out << std::endl;
-
+    
     first = pages.begin();
     for(unsigned i = 0; first != last; ++first, ++i){
         out << (*first)  << ";";
-        adj.printLine(i, out);
-        out << std::endl;
+        adj.printLine(i, out);// Viens placer tous les 0 et 1 sur la ligne Exel au bon endroit
+        out << std::endl;// Retour à la ligne
     }
 
     std::cout << std::endl << "Affichage de l'arbre correspondant" << std::endl;
