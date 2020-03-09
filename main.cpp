@@ -273,15 +273,15 @@ int main(int argc, char* argv[])
     for(; first != last; ++first)
         out << ";" << (*first);
     
-    /* retour à la ligne
+    /* Retour à la ligne
      * */
     out << std::endl;
     
     first = pages.begin();
     for(unsigned i = 0; first != last; ++first, ++i){
         out << (*first)  << ";";
-        adj.printLine(i, out);
-        out << std::endl;
+        adj.printLine(i, out);// Viens placer tous les 0 et 1 sur la ligne Exel au bon endroit
+        out << std::endl;// Retour à la ligne
     }
 
     std::cout << std::endl << "Affichage de l'arbre correspondant" << std::endl;
