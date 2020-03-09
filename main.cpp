@@ -268,17 +268,20 @@ int main(int argc, char* argv[])
     auto first = pages.begin();
     auto last = pages.end();
 
-
+    /* On vient placer sur la première ligne tous les liens trouvés
+     * */
     for(; first != last; ++first)
         out << ";" << (*first);
-
+    
+    /* Retour à la ligne
+     * */
     out << std::endl;
-
+    
     first = pages.begin();
     for(unsigned i = 0; first != last; ++first, ++i){
         out << (*first)  << ";";
-        adj.printLine(i, out);
-        out << std::endl;
+        adj.printLine(i, out);// Viens placer tous les 0 et 1 sur la ligne Exel au bon endroit
+        out << std::endl;// Retour à la ligne
     }
 
     std::cout << std::endl << "Affichage de l'arbre correspondant" << std::endl;
