@@ -328,11 +328,11 @@ int main(int argc, char* argv[])
     first = pages.begin();
     for(unsigned i = 0; first != last; ++first, ++i){
         out << (*first)  << ";";
-        adj.printLine(i, out);//
+        adj.printLine(i, out);
         out << std::endl;
     }
 
-    std::cout << std::endl << "Affichage de l'arbre correspondant" << std::endl;
+    std::cout << std::endl << "Display of the corresponding tree: " << std::endl;
     tree.show();
 
     return 0;

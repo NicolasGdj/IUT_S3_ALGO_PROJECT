@@ -18,6 +18,7 @@ struct triplet{
     std::string sub;
     bool added;
     unsigned matrice_pos;
+
     triplet(std::string sub, bool added, unsigned matrice_pos) : sub(sub), added(added), matrice_pos(matrice_pos){
 
     }
@@ -116,7 +117,7 @@ public:
          *  \param url : Url d'une page internet
          *  \return Si la valeur est trouvé true sinon false
          */
-    bool find(const std::string & url){ // www.youtube.com/user/nicolas
+    bool find(const std::string & url){
         if(!m_root) return false;
         if(url.length() == 0) return false;
         std::string sub = getFirstSplit(url, "/");
@@ -192,7 +193,7 @@ public:
         if(!m_root) return;
         for(unsigned i = 0; i < shift; ++i)
             std::cout << " ";
-        std::cout << m_root->getData().sub << " " << m_root->getData().added << " " << m_root->getData().matrice_pos << std::endl;
+        std::cout << m_root->getData().sub << " (visited=" << (m_root->getData().added == 1 ? "true" : "false") << ", matrice_id=" << m_root->getData().matrice_pos << ")" << std::endl;
         const std::list<std::shared_ptr<CNode<triplet>>> & children = m_root->getChildren();
 
         auto first = children.begin();
