@@ -19,13 +19,13 @@ std::string openFile(const std::string & path){
      * Creation d'une chaine d'un string qui contient la commande qui sera executée.
      * On utilise le logiciel curl qui nous permet de recuperer le contenue d'une page.
      * L'option -L permet de preciser au logiciel qu'il doit suivre la redirection qu'il y a sur la page.
-     * Une fois le telechargement fait, on redirige la sortie "erreur" vers le fichier err.txt
+     * Une fois le telechargement fait, on redirige la sortie "erreur" vers le fichier err.txt pour évité un affichage dans la console
      * Alors que la sortie standard est redirigé vers le fichier currentPage.txt
      * */
     std::string fPath = "curl -L \"" + path + "\" 2> err.txt > currentPage.txt";
 
     /* La donction system() permet d'executer directement une commande.
-     * On passe en parametre la chaine definus plus ou et on la convertie en type string du language C.
+     * On passe en parametre la chaine definis plus ou et on la convertie en type string du language C.
      * */
     system(fPath.c_str());
 
