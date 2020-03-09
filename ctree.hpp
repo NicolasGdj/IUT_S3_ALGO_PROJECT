@@ -1,6 +1,13 @@
 #ifndef CTREE_HPP
 #define CTREE_HPP
 
+/*!
+ * \file ctree.hpp
+ * \brief Fichier contenant la classe arbre
+ * \author Alexandre BOUILLE, Louis DUTTIER, Enzo PALOTY, Mathieu GIACALONE, Lucas FAUCHIER, Nicolas GUERROUDJ
+ * \version 1.0
+ */
+
 #include <iostream>
 #include <memory>
 #include <list>
@@ -15,17 +22,49 @@ struct triplet{
     }
 };
 
+/*! \class CTree
+   * \brief classe representant un arbre
+   *
+   *  Cette classe crée et contient toutes les fonctions utiles a un arbre
+   */
+
 class CTree
 {
 private:
-    std::shared_ptr<CNode<triplet>> m_root;
+    std::shared_ptr<CNode<triplet>> m_root; /*!< Pointeur vers la node principal de l'arbre*/
+
+    /*!
+         *  \brief Constructeur privée
+         *
+         *  Constructeur secondaire de la classe CTree
+         *
+         *  \param root : Pointeur vers la node principal de l'arbre
+         */
     CTree(const std::shared_ptr<CNode<triplet>> root) : m_root(root){
 
     }
+
 public:
+
+    /*!
+         *  \brief Constructeur
+         *
+         *  Constructeur de la classe CTree
+         *
+         *  \param val : Triplet servant a crée la premiere node
+         *  \return Retourne une instance de la classe
+         */
     CTree(const triplet & val) : m_root(std::shared_ptr<CNode<triplet>>(new CNode<triplet>(val))){
 
     }
+
+    /*!
+         *  \brief Ajout d'un triplet
+         *
+         *  Ajout d'un triplet a l'arbre
+         *
+         *  \param trip : Triplet a ajouter a l'arbre
+         */
     void add(const triplet & trip){ // www.youtube.com/user/nicolas
         if(!m_root) return;
         const std::string & url = trip.sub;
@@ -68,6 +107,14 @@ public:
 
     }
 
+    /*!
+         *  \brief Verifie si une node crée avec une URL existe
+         *
+         *  Verifie si une node crée avec une URL existe
+         *
+         *  \param url : Url d'une page internet
+         *  \return Si la valeur est trouvé true sinon false
+         */
     bool find(const std::string & url){ // www.youtube.com/user/nicolas
         if(!m_root) return false;
         if(url.length() == 0) return false;
@@ -97,7 +144,14 @@ public:
         return false;
     }
 
-
+    /*!
+         *  \brief Recuperation de l'index
+         *
+         *  Recupere l'index d'une node a partir d'une URL
+         *
+         *  \param url : Url d'une page internet
+         *  \return Index
+         */
     unsigned get(const std::string & url){ // www.youtube.com/user/nicolas
         if(!m_root) return 0;
         if(url.length() == 0) return 0;
@@ -126,6 +180,13 @@ public:
         return 0;
     }
 
+    /*!
+         *  \brief Affichage de l'arbre
+         *
+         *  Affichage de l'abre avec la posibilité de mettre un ecart
+         *
+         *  \param shift : Ecart
+         */
     void show(unsigned shift = 0) const{
         if(!m_root) return;
         for(unsigned i = 0; i < shift; ++i)

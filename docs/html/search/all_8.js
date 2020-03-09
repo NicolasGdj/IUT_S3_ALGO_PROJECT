@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['openfile_29',['openFile',['../d4/dee/a00008.html#af38d2d1069bb3108e89da5cd46e03d5c',1,'main.cpp']]]
+  ['paircolval_22',['pairColVal',['../dc/d52/cmatrix_8hpp.html#a46f156899e501a745e6e3d6dd9db06da',1,'cmatrix.hpp']]],
+  ['printline_23',['printLine',['../d2/dcb/class_c_matrix.html#a4ae01d65e558e1026802e825bd8acf92',1,'CMatrix']]]
 ];

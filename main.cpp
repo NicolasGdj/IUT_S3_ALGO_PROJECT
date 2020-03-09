@@ -1,3 +1,9 @@
+/*!
+ * \file main.cpp
+ * \brief Fichier principal du logiciel
+ * \version 1.0
+ */
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -13,6 +19,14 @@ using namespace std;
 std::string urlBase; // String contenant l'url du site
 unsigned MAX = 4;
 
+/*!
+     *  \brief Ouvre un fichier
+     *
+     *  Une un fichier et recuperation du contenue
+     *
+     *  \param path : Chemin du fichier
+     *  \return Contenue du fichier
+     */
 std::string openFile(const std::string & path){
 
     /*
@@ -53,6 +67,15 @@ std::string openFile(const std::string & path){
     return result;
 }
 
+/*!
+     *  \brief Verifie si un string commence par un string
+     *
+     *  Verifie si un string commence par une valeur
+     *
+     *  \param mainStr : String principal
+     *  \param toMatch : Chaine qui doit se trouver un premiere position de la chaine principal
+     *  \return true si existant en premiere position sinon false
+     */
 bool startsWith(const std::string & mainStr, const std::string & toMatch) {
     if(mainStr.find(toMatch) == 0) // Si il trouve la chaine en position 1 alors on retourne truee
         return true;
@@ -60,7 +83,14 @@ bool startsWith(const std::string & mainStr, const std::string & toMatch) {
         return false;
 }
 
-
+/*!
+     *  \brief Recuperation de l'URL formatée
+     *
+     *  Recuperation de l'URL sans aucun parametre
+     *
+     *  \param url : Url a formater
+     *  \return Url formaté
+     */
 std::string get_url_without_extra_data(const std::string & url){
     if(url.length() == 0)
         return url;
@@ -78,16 +108,39 @@ std::string get_url_without_extra_data(const std::string & url){
 }
 
 
-
+/*!
+     *  \brief Recupere le nom de dmaine
+     *
+     *  Recupere le nom de domaine a partir d'une Url
+     *
+     *  \param url : Url original
+     *  \return Le nom de domaine
+     */
 std::string get_url_base(const std::string & url){
     std::string link = get_url_without_extra_data(url);
     return getFirstSplit(link, "/");
 }
 
+/*!
+     *  \brief Retourne le nom de la page
+     *
+     *  Retourne le nom de la page sans nom de domaine a partir d'une Url
+     *
+     *  \param url : Url original
+     *  \return L'url formaté
+     */
 std::string get_url_without_base(const std::string & url){
     return url.substr(get_url_base(url).length());
 }
 
+/*!
+     *  \brief Retourne les parametres de l'url
+     *
+     *  Retourne les parametres etant dans une Url
+     *
+     *  \param url : Url original
+     *  \return String contenant les parametres
+     */
 std::string get_extra_data(const std::string & url){
     std::size_t pos1 = url.find("#");
     std::size_t pos2 = url.find("?");
@@ -99,6 +152,13 @@ std::string get_extra_data(const std::string & url){
     }
 }
 
+/*!
+     *  \brief Formate une Url
+     *
+     *  Application de nombreux changement pour que la formes de toutes les Url sois les mêmes
+     *
+     *  \param link : Url original
+     */
 void normalize_link(std::string & link){
     if(link.length() == 0) return;
     std::size_t pos = link.find("#");
@@ -132,7 +192,16 @@ void normalize_link(std::string & link){
    // std::cout << "Final link : " <<link << std::endl;
 }
 
-
+/*!
+     *  \brief Parcour d'une page
+     *
+     *  Pacour d'une page pour trouver et traiter des liens hypertext
+     *
+     *  \param pages : Liste de pages
+     *  \param adjs : Matrice adjacente
+     *  \param tree : Arbre
+     *  \param current : iterateur courant
+     */
 void explore(std::list<std::string> & pages, CMatrix & adjs, CTree & tree, std::list<std::string>::iterator & current){
     if(pages.end() == current) return;
     std::string path = *current;
@@ -223,8 +292,14 @@ void explore(std::list<std::string> & pages, CMatrix & adjs, CTree & tree, std::
 
 }
 
-
-
+/*!
+     *  \brief Fonction principal du programmme
+     *
+     *  Fonction executé en premier par le programme
+     *
+     *  \param argc : Nombre d'argument passé en parametre dans le programme
+     *  \param argv : Parametre passé dans le programme
+     */
 int main(int argc, char* argv[])
 {
 

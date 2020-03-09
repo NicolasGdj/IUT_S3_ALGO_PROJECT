@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['triplet_41',['triplet',['../d7/de0/a00022.html',1,'']]]
+  ['triplet_31',['triplet',['../d0/dd3/structtriplet.html',1,'']]]
 ];

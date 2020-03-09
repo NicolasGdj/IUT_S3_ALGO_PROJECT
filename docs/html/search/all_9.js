@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['paircolval_30',['pairColVal',['../d7/d46/a00002.html#a46f156899e501a745e6e3d6dd9db06da',1,'cmatrix.hpp']]],
-  ['printline_31',['printLine',['../d1/d2b/a00018.html#a4ae01d65e558e1026802e825bd8acf92',1,'CMatrix']]]
+  ['setvalue_24',['setValue',['../d2/dcb/class_c_matrix.html#a97db46bd675582b287e6290eed31367a',1,'CMatrix']]],
+  ['show_25',['show',['../d9/d70/class_c_tree.html#aaaac71cb122b42637b2f3d6828fd7f58',1,'CTree']]],
+  ['startswith_26',['startsWith',['../df/d0a/main_8cpp.html#a8607bbc1e90cb0b69248921484e470d1',1,'main.cpp']]]
 ];

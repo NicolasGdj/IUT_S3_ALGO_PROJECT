@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projet C++: CNode&lt; T &gt; Class Template Reference</title>
+<title>Projet c++: CNode&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Projet C++
+   <div id="projectname">Projet c++
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -68,19 +69,129 @@ $(function() {
 <div class="title">CNode&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>classe representant une node  
+ <a href="class_c_node.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="node_8hpp_source.html">node.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1c500646050b94d485bd843c88cd0706"><td class="memItemLeft" align="right" valign="top"><a id="a1c500646050b94d485bd843c88cd0706"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CNode</b> (const T &amp;data)</td></tr>
+<tr class="memitem:a1c500646050b94d485bd843c88cd0706"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_node.html#a1c500646050b94d485bd843c88cd0706">CNode</a> (const T &amp;data)</td></tr>
+<tr class="memdesc:a1c500646050b94d485bd843c88cd0706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="class_c_node.html#a1c500646050b94d485bd843c88cd0706">More...</a><br /></td></tr>
 <tr class="separator:a1c500646050b94d485bd843c88cd0706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85407ca95e052cc7a15edbce26b5a7e2"><td class="memItemLeft" align="right" valign="top"><a id="a85407ca95e052cc7a15edbce26b5a7e2"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> ()</td></tr>
+<tr class="memitem:a85407ca95e052cc7a15edbce26b5a7e2"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_node.html#a85407ca95e052cc7a15edbce26b5a7e2">getData</a> ()</td></tr>
+<tr class="memdesc:a85407ca95e052cc7a15edbce26b5a7e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la valeur donnée(s) de la node.  <a href="class_c_node.html#a85407ca95e052cc7a15edbce26b5a7e2">More...</a><br /></td></tr>
 <tr class="separator:a85407ca95e052cc7a15edbce26b5a7e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaed6b6d49b4e978a066a8149d485f12d"><td class="memItemLeft" align="right" valign="top"><a id="aaed6b6d49b4e978a066a8149d485f12d"></a>
-std::list&lt; std::shared_ptr&lt; <a class="el" href="class_c_node.html">CNode</a>&lt; T &gt; &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getChildren</b> ()</td></tr>
+<tr class="memitem:aaed6b6d49b4e978a066a8149d485f12d"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_c_node.html">CNode</a>&lt; T &gt; &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_node.html#aaed6b6d49b4e978a066a8149d485f12d">getChildren</a> ()</td></tr>
+<tr class="memdesc:aaed6b6d49b4e978a066a8149d485f12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne les enfants.  <a href="class_c_node.html#aaed6b6d49b4e978a066a8149d485f12d">More...</a><br /></td></tr>
 <tr class="separator:aaed6b6d49b4e978a066a8149d485f12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class CNode&lt; T &gt;</h3>
+
+<p>classe representant une node </p>
+<p>Cette classe créer et gere toutes les fonctions liées a une node </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1c500646050b94d485bd843c88cd0706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c500646050b94d485bd843c88cd0706">&#9670;&nbsp;</a></span>CNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_node.html">CNode</a>&lt; T &gt;::<a class="el" href="class_c_node.html">CNode</a> </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur. </p>
+<p>Constructeur de la classe <a class="el" href="class_c_node.html" title="classe representant une node">CNode</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>: Valeur de la node (donnée(s)) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaed6b6d49b4e978a066a8149d485f12d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed6b6d49b4e978a066a8149d485f12d">&#9670;&nbsp;</a></span>getChildren()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;std::shared_ptr&lt;<a class="el" href="class_c_node.html">CNode</a>&lt;T&gt; &gt; &gt;&amp; <a class="el" href="class_c_node.html">CNode</a>&lt; T &gt;::getChildren </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne les enfants. </p>
+<p>Retourne la liste de tous les enfants de cette node </p>
+
+</div>
+</div>
+<a id="a85407ca95e052cc7a15edbce26b5a7e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85407ca95e052cc7a15edbce26b5a7e2">&#9670;&nbsp;</a></span>getData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="class_c_node.html">CNode</a>&lt; T &gt;::getData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la valeur donnée(s) de la node. </p>
+<p>Retourne la valeur de la node (donnée(s)) definit </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/lucas/Documents/DEV/C++/IUT_S3_ALGO_PROJECT/<a class="el" href="node_8hpp_source.html">node.hpp</a></li>
 </ul>
