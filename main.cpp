@@ -283,7 +283,7 @@ int main(int argc, char* argv[])
 
     std::string path = "";
     MAX = 1;
-
+    std::string output = "";
     if(argc != 4){
         std::cout << "Usage : ./a.out <baseURL> <max> <outFile>" << std::endl;
         return 1;
@@ -298,7 +298,7 @@ int main(int argc, char* argv[])
             std::cout << "Max invalid value" << std::endl;
             return 1;
         }
-        std::string output = argv[3];
+       output = argv[3];
     }
 
     normalize_link(path);
@@ -314,7 +314,7 @@ int main(int argc, char* argv[])
     explore(pages, adj, tree, ++pages.begin());
 
 
-    ofstream out("out.txt");
+    ofstream out(output);
 
     auto first = pages.begin();
     auto last = pages.end();
