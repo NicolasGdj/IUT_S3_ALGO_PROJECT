@@ -263,7 +263,7 @@ void explore(std::list<std::string> & pages, CMatrix & adjs, CTree & tree, std::
             }
 
         }
-        adjs.setValue(current_matrice_pos, matrice_pos, true);
+        adjs.setValue(matrice_pos, current_matrice_pos, true);
     }
 
     explore(pages, adjs, tree, ++current);
@@ -283,9 +283,19 @@ int main(int argc, char* argv[])
 
     std::string path = "";
     MAX = 1;
-    std::string output = "";
+    std::string output = "out.txt";
+    for(int i = 0; i < argc; ++i){
+        if(argv[i] == std::string("-i")){
+            std::cout << std::endl
+                      << "Software created by students of the IUT of Aix-en-provence :" << std::endl
+                      << "Lucas Fauchier, Mathieu GIACALONE, Enzo PALOTY, Alexandre BOUILLE and Nicolas GUERROUDJ." << std::endl
+                      << "Project tutored by M. Alain CASALI & M. Samuele ANNI." << std::endl
+                      << std::endl;
+            return 0;
+        }
+    }
     if(argc != 4){
-        std::cout << "Usage : ./a.out <baseURL> <max> <outFile>" << std::endl;
+        std::cout << "Usage : ./a.out [-i] <baseURL> <max> <outFile>" << std::endl;
         return 1;
     }else{
         path = argv[1];

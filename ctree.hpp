@@ -15,11 +15,11 @@
 #include "node.hpp"
 
 struct triplet{
-    std::string sub;
-    bool added;
     unsigned matrice_pos;
+    bool added;
+    std::string sub;
 
-    triplet(std::string sub, bool added, unsigned matrice_pos) : sub(sub), added(added), matrice_pos(matrice_pos){
+    triplet(std::string _sub, bool _added, unsigned _matrice_pos) :matrice_pos(_matrice_pos), added(_added),  sub(_sub){
 
     }
 };
